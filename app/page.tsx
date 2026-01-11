@@ -3,6 +3,7 @@
 import ScrollExpandMedia from '@/components/ui/scroll-expansion-hero';
 import { AnimatedTestimonials } from '@/components/ui/animated-testimonials';
 import { Instagram, Phone, Facebook, Mail, MapPin } from 'lucide-react';
+import { QRCodeSVG } from 'qrcode.react';
 import Image from 'next/image';
 import { useEffect } from 'react';
 
@@ -13,7 +14,7 @@ export default function Home() {
 
     // Placeholder content for Firefighter Recruitment
     // Using a placeholder YouTube video about firefighters (Official video or stock)
-    const VIDEO_SRC = "https://www.youtube.com/watch?v=5UpLfUY5lRY"; 
+    const VIDEO_SRC = "https://youtu.be/p63cpQSKKp0"; 
     // Or a Google Drive link example: "https://drive.google.com/file/d/VIDEO_ID/preview"
 
     // Firefighter themed background (Fire Station / Cuartel)
@@ -77,6 +78,25 @@ export default function Home() {
                             <br />
                             <span className="font-semibold text-white">Valor, Sacrificio y Abnegación.</span>
                         </p>
+
+                        <div className="flex flex-col sm:flex-row items-center gap-6 mt-8 p-6 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm">
+                            <a
+                                href="mailto:Incorporacionesbomberosbernal@gmail.com"
+                                className="group flex flex-row items-center gap-4 px-6 py-4 rounded-xl bg-red-600 hover:bg-red-500 transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(220,38,38,0.3)] hover:shadow-[0_0_30px_rgba(220,38,38,0.5)]"
+                            >
+                                <Mail className="w-6 h-6 text-white" />
+                                <span className="text-white font-bold tracking-wide">Sumate aca</span>
+                            </a>
+
+                            <div className="flex items-center gap-4 bg-white p-3 rounded-xl shadow-lg">
+                                <QRCodeSVG
+                                    value="mailto:Incorporacionesbomberosbernal@gmail.com"
+                                    size={80}
+                                    level="H"
+                                    includeMargin={false}
+                                />
+                            </div>
+                        </div>
                     </div>
 
                     <AnimatedTestimonials testimonials={testimonials} autoplay={true} />
@@ -128,17 +148,6 @@ export default function Home() {
                                     <Facebook className="w-8 h-8 text-white fill-current" />
                                 </div>
                                 <span className="text-gray-200 group-hover:text-white font-bold tracking-wide">Facebook</span>
-                            </a>
-
-                            {/* Email */}
-                            <a
-                                href="mailto:Incorporacionesbomberosbernal@gmail.com"
-                                className="group flex flex-col items-center space-y-4 p-8 rounded-xl bg-white/5 hover:bg-red-600/20 transition-all duration-300 hover:scale-105 border border-white/10 hover:border-red-500/50 w-40 md:w-48"
-                            >
-                                <div className="p-4 rounded-full bg-red-600 group-hover:bg-red-500 group-hover:shadow-[0_0_20px_rgba(239,68,68,0.5)] transition-all">
-                                    <Mail className="w-8 h-8 text-white" />
-                                </div>
-                                <span className="text-gray-200 group-hover:text-white font-bold tracking-wide">Correo</span>
                             </a>
 
                             {/* Google Maps */}
