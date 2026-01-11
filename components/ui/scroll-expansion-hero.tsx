@@ -210,15 +210,15 @@ const ScrollExpandMedia = ({
                             >
                                 {mediaType === 'video' ? (
                                     mediaSrc.includes('youtube.com') || mediaSrc.includes('youtu.be') || mediaSrc.includes('drive.google.com') ? (
-                                        <div className='relative w-full h-full pointer-events-none'>
+                                        <div className='relative w-full h-full'>
                                             <iframe
                                                 width='100%'
                                                 height='100%'
                                                 src={
                                                     mediaSrc.includes('youtube.com') || mediaSrc.includes('youtu.be')
                                                         ? (mediaSrc.includes('embed')
-                                                            ? mediaSrc + (mediaSrc.includes('?') ? '&' : '?') + 'autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&disablekb=1&modestbranding=1'
-                                                            : mediaSrc.replace('watch?v=', 'embed/').replace('youtu.be/', 'www.youtube.com/embed/') + '?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&disablekb=1&modestbranding=1' + (mediaSrc.includes('v=') ? '&playlist=' + mediaSrc.split('v=')[1] : ''))
+                                                            ? mediaSrc + (mediaSrc.includes('?') ? '&' : '?') + 'autoplay=1&mute=0&loop=1&controls=1&showinfo=0&rel=0&modestbranding=1'
+                                                            : mediaSrc.replace('watch?v=', 'embed/').replace('youtu.be/', 'www.youtube.com/embed/') + '?autoplay=1&mute=0&loop=1&controls=1&showinfo=0&rel=0&modestbranding=1' + (mediaSrc.includes('v=') ? '&playlist=' + mediaSrc.split('v=')[1] : ''))
                                                         : mediaSrc // For Google Drive or generic iframes, use src as is (user must provide embed link)
                                                 }
                                                 className='w-full h-full rounded-xl'
@@ -232,7 +232,7 @@ const ScrollExpandMedia = ({
                                             ></div>
 
                                             <motion.div
-                                                className='absolute inset-0 bg-black/30 rounded-xl'
+                                                className='absolute inset-0 bg-black/30 rounded-xl pointer-events-none'
                                                 initial={{ opacity: 0.7 }}
                                                 animate={{ opacity: 0.5 - scrollProgress * 0.3 }}
                                                 transition={{ duration: 0.2 }}
